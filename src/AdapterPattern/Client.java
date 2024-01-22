@@ -10,7 +10,7 @@ public class Client {
 
 
        Adapter adapter = new Adapter(adaptee);
-       adapter.operation();
+
 
 
        Client client = new Client();
