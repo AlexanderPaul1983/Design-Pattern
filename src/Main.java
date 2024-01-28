@@ -1,19 +1,27 @@
-import DecoraterPattern.*;
-import Observer_Pattern.Handy;
-import Observer_Pattern.Wanduhr;
-import Observer_Pattern.ZugspitzeStation;
-
+import Singleton.DatabaseConnection;
 
 public class Main {
     public static void main(String[] args) {
-        ZugspitzeStation zugspitzeStation = new ZugspitzeStation();
+        DatabaseConnection db = DatabaseConnection.createConnection();
+        assert db != null;
+        db.setName("Vodafone");
+        db.connect();
 
-        Wanduhr wanduhr = new Wanduhr();
-        Handy handy = new Handy();
-        zugspitzeStation.registerObserver(handy);
-        zugspitzeStation.registerObserver(wanduhr);
-        zugspitzeStation.setTemperatur(25);
-        zugspitzeStation.removeObserver(handy);
-        zugspitzeStation.setTemperatur(30);
+        DatabaseConnection db2 = DatabaseConnection.createConnection();
+
+        db2.connect();
+
+        db.disconnect();
+
+        System.out.println(db.getName());
+        System.out.println(db2.getName());
+        if (db == db2){
+            System.out.println("die sind gleich");
+        }else {
+            System.out.println("die sind nicht gleich");
+        }
+
+
+
     }
 }

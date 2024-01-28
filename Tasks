@@ -1,0 +1,21 @@
+Praktische Aufgabe: Transportmittel-Factory
+Stellen wir uns vor, wir entwickeln ein Logistikmanagement-System. Verschiedene Arten von Transportmitteln
+(wie LKW, Schiff) können verwendet werden, aber die spezifische Art des Transportmittels hängt von verschiedenen Faktoren ab.
+
+Erstelle das Transport Interface (Product):
+
+Definiere eine Methode deliver, die das Transportmittel beschreibt.
+Implementiere das Transport Interface (Concrete Products):
+
+Erstelle Klassen wie Truck und Ship, die das Transport Interface implementieren.
+Erstelle die Logistics Klasse (Creator):
+
+Definiere eine abstrakte Methode createTransport, die ein Transport-Objekt zurückgibt.
+Implementiere Unterklassen von Logistics (Concrete Creators):
+
+Erstelle Klassen wie RoadLogistics und SeaLogistics, die Logistics erweitern und die createTransport-Methode implementieren,
+um entsprechende Transportmittel zu erstellen.
+Teste das System in der main-Methode:
+
+Erstelle Instanzen von RoadLogistics und SeaLogistics.
+Rufe die createTransport-Methode auf und führe die deliver-Methode der zurückgegebenen Transportmittel aus.
