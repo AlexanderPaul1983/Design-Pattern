@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ZugspitzeStation implements WetterStation{
 
-    private ArrayList<Observer> observerList;
+    private final ArrayList<Observer> observerList;
     private int temperatur;
 
 

@@ -2,32 +2,28 @@ package Singleton;
 
 public class DatabaseConnection {
 
-   static private DatabaseConnection connection;
+   private static DatabaseConnection connection;
    private String name;
 
-    private DatabaseConnection(){
-
+    private DatabaseConnection(String name){
+        this.name = name;
     }
-    public void setName(String name){
-            this.name = name;
+    public static DatabaseConnection getInstance(String name){
+        if(connection == null){
+        connection = new DatabaseConnection(name);
+        }
+        return connection;
     }
-    public String getName(){
-      return name;
 
+
+    public void getName() {
+        System.out.println(name);
     }
 
-    public static synchronized DatabaseConnection createConnection(){
-        if (connection == null){
-            connection = new DatabaseConnection();
-        }else {
-            System.out.println("Sie haben schon connection");
-        } return connection;
 
-    }
+
     public void connect(){
-        System.out.println("Connection with " + name + " was created");
+        System.out.println("Connection with " + name + " has been created");
     }
-    public void disconnect(){
-        System.out.println( name + " was disconnected");
-    }
+
 }
