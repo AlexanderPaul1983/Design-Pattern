@@ -1,3 +1,7 @@
+import DependencyInjection.EmailSender;
+import DependencyInjection.Notification;
+import DependencyInjection.NotificationSender;
+import DependencyInjection.SMSender;
 import Observer_Pattern.Handy;
 import Observer_Pattern.Observer;
 import Observer_Pattern.WetterStation;
@@ -6,9 +10,11 @@ import Singleton.DatabaseConnection;
 
 public class Main {
     public static void main(String[] args) {
-        DatabaseConnection db = DatabaseConnection.getInstance("gf");
-        db.getName();
-
-
+        Notification sms = new SMSender();
+        Notification email = new EmailSender();
+        NotificationSender notificationSender = new NotificationSender(sms);
+        NotificationSender notPerEmial = new NotificationSender(email);
+        notificationSender.sendNotificationValidation("015765212568", "Hallo!");
+        notPerEmial.sendNotificationValidation("alexander@gmx.de", "Hallo per email");
     }
 }
